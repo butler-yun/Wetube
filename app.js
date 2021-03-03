@@ -6,12 +6,6 @@ import morgan from "morgan";
 
 const app = express();
 
-const PORT = 4000;
-
-const handleListening = () => {
-    console.log(`✅ Listening On: http://localhost:${PORT}`);
-}
-
 const home = (req, res) => {
     res.send(`Welcome to my Home!`);
 }
@@ -24,4 +18,4 @@ app.use(morgan('dev'));
 
 app.get('/', home);
 
-app.listen(PORT, handleListening);
+export default app;
