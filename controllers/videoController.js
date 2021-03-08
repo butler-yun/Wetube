@@ -1,28 +1,28 @@
 export const home = (req, res) => {
-    res.send("Home");
+    res.render("Home");
 };
 
 export const search = (req, res) => {
-    res.send("Search");
+    res.render("Search");
 };
 
 export const videos = (req, res) => {
-    res.send("Video");
+    res.render("Video");
 };
 
 export const upload = (req, res) => {
-    res.send("Upload");
+    res.render("Upload");
 };
 
 export const videoDetail = (req, res) => {
-    res.send("Video Detail");
+    res.render("Video Detail");
 };
 
 export const editVideo = (req, res) => {
-    res.send("Edit Video");
+    res.render("Edit Video");
 }
 
 export const deleteVideo =(req, res) => {
-    res.send("Delete Video");
+    res.render("Delete Video");
 }
 
