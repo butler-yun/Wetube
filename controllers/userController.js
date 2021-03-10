@@ -1,5 +1,26 @@
-export const join = (req, res) => {
+import routes from "../routes";
+
+// Join
+export const getJoin = (req, res) => {
     res.render("join", {pageTitle: "Join"});
+};
+
+export const postJoin = (req, res) => {
+    const {
+        body: {
+            name, email, password, password2
+        }
+    } = req;
+    // req.body.name과 같음
+
+    // 입력한 비밀번호가 다를 때
+    if (password !== password2) {
+        res.status(400);
+        res.render("join", {pageTitle: "Join"});
+    } else {
+        // 비밀번호가 같을 때
+        res.redirect(routes.home)
+    }
 };
 
 export const login = (req, res) => {
