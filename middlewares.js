@@ -5,3 +5,9 @@ export const localMiddleware = (req, res, next) => {
     res.locals.routes = routes;
     next();
 };
+
+// helmet csp 때문에 임시로 설정. [추후 수정 건]
+export const videoSetHeader = (req, res, next) => {
+    res.setHeader("Content-Security-Policy", "script-src 'self' https://archive.org");
+    next();
+}
