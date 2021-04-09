@@ -30,15 +30,24 @@ export const getUpload = (req, res) => {
     res.render("upload",  {pageTitle: "Upload"});
 };
 
-export const postUpload = (req, res) => {
+export const postUpload = async (req, res) => {
     const {
         body: {
-            file, title, description
+            title, description
+        },
+        file: {
+            path
         }
     } = req;
-
     // req.body.file과 같음
-    res.redirect(routes.videoDetail(324393));
+
+    const newVideo = await Video.create({
+        fileUrl: path,
+        title,
+        description
+    });
+
+    res.redirect(routes.videoDetail(newVideo.id));
 };
 
 
